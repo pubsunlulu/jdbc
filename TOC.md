@@ -1,5 +1,5 @@
 [TOC]
-#<center>JDBC 教程
+#<center>JDBC 教程#
 1. [JDBC之家](JDBC-Home.md)
 2. [JDBC-简介](JDBC-Introduction.md)
 3. [JDBC-SQL语法](JDBC-SQL Syntax.md)
@@ -16,7 +16,7 @@
 14. [JDBC-存储过程](JDBC-Stored Procedure.md)
 15. [JDBC-流数据](JDBC-Streaming Data.md)
 [TOC]
-#<center>JDBC 实例
+#<center>JDBC 实例#
 1. [JDBC-创建数据库实例](JDBC-Create Database.md)
 2. [JDBC-选择数据库实例](JDBC-Select Database.md)
 3. [JDBC-删除数据库实例](JDBC-Drop Database.md)
