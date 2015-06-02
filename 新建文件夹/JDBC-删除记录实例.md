@@ -1,21 +1,21 @@
-本章介绍了如何使用 JDBC 应用程序在表中更新记录的示例。执行下面的示例之前，请确保你已做好以下工作-
+本章介绍了如何使用JDBC应用程序在表中删除记录的示例。执行下面的示例之前，请确保你已做好以下工作-
 
-- 在运行下面的例子之前，你需要用你实际的用户名和密码去代替  *username* 和 *password* 。
-- 你的 MySQL 或者其他数据库已经启动了并在运行中。
+- 在运行下面的例子之前，你需要用你实际的用户名和密码去代替*username*和*password*。
+- 你的MySQL或者其他数据库已经启动了并在运行中。
 
 # 所需的步骤 #
 
-用 JDBC 应用程序去创建一个新的数据库需要执行以下步骤-
+用JDBC应用程序去创建一个新的数据库需要执行以下步骤-
 
-- **导入包**：要求你包括含有需要进行数据库编程的 JDBC 类的包。大多数情况下，使用 *import java.sql.** 就足够了。
-- **注册 JDBC 驱动程序**：要求你初始化驱动程序，这样你可以与数据库打开通信通道。
-- **打开连接**：需要使用 *DriverManager.getConnection()* 方法创建一个 Connection 对象，它代表与数据库服务器的物理连接。
-- **执行查询**：需要使用类型声明的对象建立并提交一个 SQL 语句，这样可以更新表中的记录。这个 SQL 语句用 **IN** 和 **WHERE** 子句来更新符合条件的记录。
-- **清理环境**：依靠 JVM 垃圾收集器可以明确地回收所有的数据库资源。
+- **导入包**：要求你包括含有需要进行数据库编程的JDBC类的包。大多数情况下，使用*import java.sql.* *就足够了。
+- **注册JDBC驱动程序**：要求你初始化驱动程序，这样你可以与数据库打开通信通道。
+- **打开连接**：需要使用*DriverManager.getConnection()*方法创建一个Connection对象，它代表与数据库服务器的物理连接。
+- **执行查询**：需要使用类型声明的对象建立并提交一个SQL语句，这样可以更新表中的记录。这个SQL语句用**WHERE**子句来作为删除符合条件的记录。
+- **清理环境**：依靠JVM垃圾收集器可以明确地回收所有的数据库资源。
 
 # 示例代码 #
 
-将下面的示例拷贝并粘帖到 JDBCExample.java 中，编译并运行它，如下所示-
+将下面的示例拷贝并粘帖到JDBCExample.java中，编译并运行它，如下所示-
 
 ```
 //STEP 1. Import required packages
@@ -45,12 +45,12 @@ public class JDBCExample {
       //STEP 4: Execute a query
       System.out.println("Creating statement...");
       stmt = conn.createStatement();
-      String sql = "UPDATE Registration " +
-                   "SET age = 30 WHERE id in (100, 101)";
+      String sql = "DELETE FROM Registration " +
+                   "WHERE id = 101";
       stmt.executeUpdate(sql);
 
       // Now you can extract all the records
-      // to see the updated records
+      // to see the remaining records
       sql = "SELECT id, first, last, age FROM Registration";
       ResultSet rs = stmt.executeQuery(sql);
 
@@ -99,8 +99,8 @@ public class JDBCExample {
 C:\>javac JDBCExample.java
 C:\>
 ```
- 
-当你运行 **JDBCExample** 时，它将展示下面的结果-
+
+当你运行 **JDBCExample**时，它将展示下面的结果-
 
 ```
 C:\>java JDBCExample
@@ -108,7 +108,6 @@ Connecting to a selected database...
 Connected database successfully...
 Creating statement...
 ID: 100, Age: 30, First: Zara, Last: Ali
-ID: 101, Age: 30, First: Mahnaz, Last: Fatma
 ID: 102, Age: 30, First: Zaid, Last: Khan
 ID: 103, Age: 28, First: Sumit, Last: Mittal
 Goodbye!

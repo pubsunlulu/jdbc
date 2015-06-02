@@ -1,21 +1,23 @@
-本章介绍了如何使用 JDBC 应用程序来创建一个表的示例。执行下面的示例之前，请确保你已做好以下工作-
+本章介绍了如何使用JDBC应用程序来删除一个表的示例。执行下面的示例之前，请确保你已做好以下工作-
 
-- 在运行下面的例子之前，你需要用你实际的用户名和密码去代替  *username* 和 *password* 。
-- 你的 MySQL 或者其他数据库已经启动了并在运行中。
+- 在运行下面的例子之前，你需要用你实际的用户名和密码去代替*username*和*password*。
+- 你的MySQL或者其他数据库已经启动了并在运行中。
+
+**注意：**这是一个重要的操作，在你删除表之前必须慎重考虑，因为一旦操作，在这个表里的所有数据都将删除。
 
 # 所需的步骤 #
 
-用 JDBC 应用程序去创建一个新的数据库需要执行以下步骤-
+用JDBC应用程序去创建一个新的数据库需要执行以下步骤-
 
-- **导入包**：要求你包括含有需要进行数据库编程的 JDBC 类的包。大多数情况下，使用 *import java.sql.**  就足够了。
-- **注册 JDBC 驱动程序**：要求你初始化驱动程序，这样你可以与数据库打开通信通道。
-- **打开连接**：需要使用 *DriverManager.getConnection()* 方法创建一个 Connection 对象，它代表与数据库服务器的物理连接。
-- **执行查询**：需要使用类型声明的对象建立并提交一个 SQL 语句到被选择的数据库中去创建表。
-- **清理环境**：依靠 JVM 垃圾收集器可以明确地回收所有的数据库资源。
+- **导入包**：要求你包括含有需要进行数据库编程的JDBC类的包。大多数情况下，使用*import java.sql.** 就足够了。
+- **注册JDBC驱动程序**：要求你初始化驱动程序，这样你可以与数据库打开通信通道。
+- **打开连接**：需要使用*DriverManager.getConnection()*方法创建一个Connection对象，它代表与数据库服务器的物理连接。
+- **执行查询**：需要使用类型声明的对象建立并提交一个SQL语句到被选择的数据库中去删除表。
+- **清理环境**：依靠JVM垃圾收集器可以明确地回收所有的数据库资源。
 
 # 示例代码 #
 
-将下面的示例拷贝并粘帖到 JDBCExample.java 中，编译并运行它，如下所示-
+将下面的示例拷贝并粘帖到JDBCExample.java中，编译并运行它，如下所示-
 
 ```
 //STEP 1. Import required packages
@@ -43,18 +45,13 @@ public class JDBCExample {
       System.out.println("Connected database successfully...");
       
       //STEP 4: Execute a query
-      System.out.println("Creating table in given database...");
+      System.out.println("Deleting table in given database...");
       stmt = conn.createStatement();
       
-      String sql = "CREATE TABLE REGISTRATION " +
-                   "(id INTEGER not NULL, " +
-                   " first VARCHAR(255), " + 
-                   " last VARCHAR(255), " + 
-                   " age INTEGER, " + 
-                   " PRIMARY KEY ( id ))"; 
-
+      String sql = "DROP TABLE REGISTRATION ";
+ 
       stmt.executeUpdate(sql);
-      System.out.println("Created table in given database...");
+      System.out.println("Table  deleted in given database...");
    }catch(SQLException se){
       //Handle errors for JDBC
       se.printStackTrace();
@@ -87,14 +84,14 @@ C:\>javac JDBCExample.java
 C:\>
 ```
 
-当你运行 **JDBCExample** 时，它将展示下面的结果-
+当你运行 **JDBCExample**时，它将展示下面的结果-
 
 ```
 C:\>java JDBCExample
 Connecting to a selected database...
 Connected database successfully...
-Creating table in given database...
-Created table in given database...
+Deleting table in given database...
+Table  deleted in given database...
 Goodbye!
 C:\>
 ```

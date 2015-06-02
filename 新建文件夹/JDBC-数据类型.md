@@ -1,6 +1,6 @@
-JDBC 驱动程序在将 Java 数据类型发送到数据库之前，会将其转换为相应的 JDBC 类型。对于大多数数据类型都采用了默认的映射关系。例如，一个  Java int 数据类型转换为 SQL INTEGER 。通过默认的映射关系来提供驱动程序之间的一致性。
+JDBC驱动程序在将Java数据类型发送到数据库之前，会将其转换为相应的JDBC类型。对于大多数数据类型都采用了默认的映射关系。例如，一个Java int数据类型转换为SQL INTEGER。通过默认的映射关系来提供驱动程序之间的一致性。
 
-当你调用 PreparedStatement 中的 setXXX() 方法或  CallableStatement 对象或 ResultSet.updateXXX() 方法时， Java  数据类型会转换为默认的 JDBC 数据类型，如下表概述。
+当你调用PreparedStatement中的setXXX()方法或CallableStatement对象或ResultSet.updateXXX()方法时，Java数据类型会转换为默认的JDBC数据类型，如下表概述。
 
 <table class="table table-bordered">
 
@@ -282,11 +282,11 @@ JDBC 驱动程序在将 Java 数据类型发送到数据库之前，会将其转
 
 </table>
 
-JDBC 3.0 增强了对 BLOB ， CLOB ， ARRAY 和 REF 数据类型的支持。    ResultSet 对象现在有 UPDATEBLOB() ， updateCLOB() ，  updateArray() ，和 updateRef() 方法，通过这些方法你可以直接操作服务器上的相应数据。
+JDBC3.0增强了对BLOB，CLOB，ARRAY和REF数据类型的支持。 ResultSet对象现在有UPDATEBLOB()，updateCLOB()，updateArray()，和updateRef()方法，通过这些方法你可以直接操作服务器上的相应数据。
 
-你能用 setXXX() 方法和 updateXXX() 方法将 Java 类型转换为特定的 JDBC 数据类型。你能用 setObject() 方法和 updateObject() 方法将绝大部分的 Java 类型映射到 JDBC 数据类型。
+你能用setXXX()方法和updateXXX()方法将Java类型转换为特定的JDBC数据类型。你能用setObject()方法和updateObject()方法将绝大部分的Java类型映射到JDBC数据类型。
 
-ResultSet 对象为任一数据类型提供相应的 getXXX() 方法，该方法可以获取任一数据类型的列值。上述任一方法的使用需要列名或它的顺序位置。
+ResultSet对象为任一数据类型提供相应的getXXX()方法，该方法可以获取任一数据类型的列值。上述任一方法的使用需要列名或它的顺序位置。
 
 <table class="table table-bordered">
 
@@ -570,9 +570,9 @@ ResultSet 对象为任一数据类型提供相应的 getXXX() 方法，该方法
 
 # 日期和时间数据类型 #
 
-java.sql.Date 类映射 SQL DATE 类型， java.sql.Time 类和  java.sql.Timestamp 类也分别映射 SQL TIME 数据类型和 SQL TIMESTAMP 数据类型。
+java.sql.Date类映射SQL DATE类型，java.sql.Time类和java.sql.Timestamp类也分别映射SQL TIME数据类型和SQL TIMESTAMP数据类型。
 
-以下示例显示了日期和时间类如何转换成标准的 Java 日期和时间值，并匹配成 SQL 数据类型所要求的格式。
+以下示例显示了日期和时间类如何转换成标准的Java日期和时间值，并匹配成SQL数据类型所要求的格式。
 
 ```
 import java.sql.Date;
@@ -613,7 +613,7 @@ C:\>javac JDBCExample.java
 C:\>
 ```
 
-当你运行 **JDBCExample** 时，它将展示下面的结果-
+当你运行 **JDBCExample**时，它将展示下面的结果-
 
 ```
 C:\>java SqlDateTime
@@ -624,15 +624,15 @@ The SQL TIMESTAMP is: 2009-08-18 13:46:02.828
 C:\>
 ```
 
-# 处理 NULL 值 #
+# 处理NULL值 #
 
-SQL 使用 NULL 值和 Java 使用 null 是不同的概念。那么，你可以使用三种策略来处理 Java 中的 SQL NULL 值-
+SQL使用NULL值和Java使用null是不同的概念。那么，你可以使用三种策略来处理Java中的SQL NULL值-
 
-- 避免使用返回原始数据类型的 getXXX() 方法。
-- 使用包装类的基本数据类型，并使用 ResultSet 对象的 wasNull() 方法来测试收到 getXXX() 方法返回的值是否为 null ，如果是 null ，该包装类变量则被设置为 null 。
-- 使用原始数据类型和 ResultSet 对象的 wasNull() 方法来测试通过  getXXX() 方法返回的值，如果是 null ，则原始变量应设置为可接受的值来代表 NULL 。
+- 避免使用返回原始数据类型的getXXX()方法。
+- 使用包装类的基本数据类型，并使用ResultSet对象的wasNull()方法来测试收到getXXX()方法返回的值是否为null，如果是null，该包装类变量则被设置为null。
+- 使用原始数据类型和ResultSet对象的wasNull()方法来测试通过getXXX()方法返回的值，如果是null，则原始变量应设置为可接受的值来代表NULL。
 
-下面是一个处理 NULL 值的示例-
+下面是一个处理NULL值的示例-
 
 ```
 Statement stmt = conn.createStatement( );

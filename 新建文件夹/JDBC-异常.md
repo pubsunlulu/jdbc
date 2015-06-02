@@ -1,14 +1,14 @@
 异常处理可以允许你处理一个异常情况，例如可控方式的程序定义错误。
 
-当异常情况发生时，将抛出一个异常。抛出这个词意味着当前执行的程序停止，控制器被重定向到最近的适用的 catch 子句。如果没有适用的 catch  子句存在，那么程序执行被终止。
+当异常情况发生时，将抛出一个异常。抛出这个词意味着当前执行的程序停止，控制器被重定向到最近的适用的catch子句。如果没有适用的catch子句存在，那么程序执行被终止。
 
-JDBC 的异常处理是非常类似于 Java 的异常处理，但对于 JDBC ，最常见的异常是 **java.sql.SQLException**。
+JDBC的异常处理是非常类似于Java的异常处理，但对于JDBC，最常见的异常是 **java.sql.SQLException**。
 
 # SQLException 方法 #
 
-SQLException 异常在驱动程序和数据库中都可能出现。当出现这个异常时， SQLException 类型的对象将被传递到 catch 子句。
+SQLException异常在驱动程序和数据库中都可能出现。当出现这个异常时，SQLException类型的对象将被传递到catch子句。
 
-传递的 SQLException 对象具有以下的方法，以下的方法可用于检索该异常的额外信息-
+传递的SQLException对象具有以下的方法，以下的方法可用于检索该异常的额外信息-
 
 <table class="table table-bordered">
 <tr>
@@ -21,15 +21,15 @@ SQLException 异常在驱动程序和数据库中都可能出现。当出现这�
 </tr>
 <tr>
 <td>getMessage( )</td>
-<td>获取 JDBC 驱动程序的错误信息，该错误是由驱动程序处理的，或者在数据库错误中获取 Oracl 错误号和错误信息。</td>
+<td>获取JDBC驱动程序的错误信息，该错误是由驱动程序处理的，或者在数据库错误中获取Oracl错误号和错误信息。</td>
 </tr>
 <tr>
 <td>getSQLState( )</td>
-<td>获取 XOPEN SQLstate 字符串。对于 JDBC 驱动程序错误，使用该方法不能返回有用的信息。对于数据库错误，返回第五位的 XOPEN SQLstate 代码。该方法可以返回 null 。</td>
+<td>获取XOPEN SQLstate字符串。对于JDBC驱动程序错误，使用该方法不能返回有用的信息。对于数据库错误，返回第五位的XOPEN SQLstate代码。该方法可以返回null。</td>
 </tr>
 <tr>
 <td>getNextException( )</td>
-<td>获取异常链的下一个 Exception 对象。</td>
+<td>获取异常链的下一个Exception对象。</td>
 </tr>
 <tr>
 <td>printStackTrace( )</td>
@@ -45,7 +45,7 @@ SQLException 异常在驱动程序和数据库中都可能出现。当出现这�
 </tr>
 </table>
 
-通过利用可从 Exception 对象提供的信息，你可以捕获异常并继续运行程序。这是一个 try 块的一般格式-
+通过利用可从Exception对象提供的信息，你可以捕获异常并继续运行程序。这是一个try块的一般格式-
 
 ```
 try {
@@ -62,9 +62,9 @@ finally {
 }
 ```
 
-## 示例 ##
+# 示例 #
 
-研究学习下面的示例代码来了解 **try .... catch ... finally** 块的使用。
+研究学习下面的示例代码来了解 **try....catch...finally** 块的使用。
 
 ```
 //STEP 1. Import required packages
@@ -141,7 +141,7 @@ C:\>javac JDBCExample.java
 C:\>
 ```
 
-当你运行 **JDBCExample** 时，如果没有问题它将展示下面的结果，否则相应的错误将被捕获并会显示错误消息-
+当你运行 **JDBCExample**时，如果没有问题它将展示下面的结果，否则相应的错误将被捕获并会显示错误消息-
 
 ```
 C:\>java JDBCExample
