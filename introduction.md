@@ -41,7 +41,7 @@ JDBC驱动程序管理器可确保正确的驱动程序来访问每个数据源�
 
 以下是结构图，其中显示了驱动程序管理器相对于在 JDBC 驱动程序和  Java 应用程序所处的位置-
 
-![](http://i.imgur.com/r8GqQJ3.jpg)
+![](images/r8GqQJ3.jpg)
 
 # 常见的 JDBC 组件 #
 
