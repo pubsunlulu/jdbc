@@ -1,3 +1,5 @@
+# 事务
+
 如果你的 JDBC 连接是处于自动提交模式下，该模式为默认模式，那么每句  SQL 语句都是在其完成时提交到数据库。
 
 对简单的应用程序来说这种模式相当好，但有三个原因你可能想关闭自动提交模式，并管理你自己的事务-
@@ -13,26 +15,36 @@
 例如，如果有一个名为 conn 的 Connection 对象，以下的代码将关闭自动提交模式-
 
 ```
+
 conn.setAutoCommit(false);
+
+
 ```
 
-# 提交和回滚 #
+## 提交和回滚
 
 当你完成了你的修改，并且要提交你的修改，可以在 connection 对象里调用 **commit（）** 方法，如下所示-
 
 ```
+
 conn.commit( );
+
+
 ```
 
 另外,用名为 conn 的连接回滚数据到数据库，使用如下所示的代码-
 
 ```
+
 conn.rollback( );
+
+
 ```
 
 下面的例子说明了如何使用提交和回滚对象-
 
 ```
+
 try{
    //Assume a valid connection object conn
    conn.setAutoCommit(false);
@@ -51,12 +63,14 @@ try{
    // If there is any error.
    conn.rollback();
 }
+
+
 ```
 
 在这种情况下，之前的 INSERT 语句不会成功，一切都将被回滚到最初状态。
 为了更好地理解，让我们研究学习事务提交-示例代码。
 
-# 使用还原点 #
+## 使用还原点
 
 新的 JDBC 3.0 还原点接口提供了额外的事务控制。大部分现代的数据库管理系统的环境都支持设定还原点，例如 Oracle 的 PL / SQL 。
 
@@ -72,6 +86,7 @@ Connection 对象有两个新的方法来管理还原点-
 下面的例子说明了如何使用 Savepoint 对象-
 
 ```
+
 try{
    //Assume a valid connection object conn
    conn.setAutoCommit(false);
@@ -93,6 +108,8 @@ try{
    // If there is any error.
    conn.rollback(savepoint1);
 }
+
+
 ```
 
 在这种情况下，之前的 INSERT 语句不会成功，一切都将被回滚到最初状态。

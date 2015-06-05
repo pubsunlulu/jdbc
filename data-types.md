@@ -1,3 +1,5 @@
+# 数据类型
+
 JDBC 驱动程序在将 Java 数据类型发送到数据库之前，会将其转换为相应的 JDBC 类型。对于大多数数据类型都采用了默认的映射关系。例如，一个  Java int 数据类型转换为 SQL INTEGER 。通过默认的映射关系来提供驱动程序之间的一致性。
 
 当你调用 PreparedStatement 中的 setXXX() 方法或  CallableStatement 对象或 ResultSet.updateXXX() 方法时， Java  数据类型会转换为默认的 JDBC 数据类型，如下表概述。
@@ -568,13 +570,14 @@ ResultSet 对象为任一数据类型提供相应的 getXXX() 方法，该方法
 
 </table>
 
-# 日期和时间数据类型 #
+## 日期和时间数据类型
 
 java.sql.Date 类映射 SQL DATE 类型， java.sql.Time 类和  java.sql.Timestamp 类也分别映射 SQL TIME 数据类型和 SQL TIMESTAMP 数据类型。
 
 以下示例显示了日期和时间类如何转换成标准的 Java 日期和时间值，并匹配成 SQL 数据类型所要求的格式。
 
 ```
+
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -604,27 +607,35 @@ public class SqlDateTime {
              sqlTimestamp.toString());
      }//end main
 }//end SqlDateTime
+
+
 ```
 
 现在，让我们用下面的命令编译上面的代码-
 
 ```
+
 C:\>javac JDBCExample.java
 C:\>
+
+
 ```
 
 当你运行 **JDBCExample** 时，它将展示下面的结果-
 
 ```
+
 C:\>java SqlDateTime
 The Java Date is:Tue Aug 18 13:46:02 GMT+04:00 2009
 The SQL DATE is: 2009-08-18
 The SQL TIME is: 13:46:02
 The SQL TIMESTAMP is: 2009-08-18 13:46:02.828
 C:\>
+
+
 ```
 
-# 处理 NULL 值 #
+## 处理 NULL 值
 
 SQL 使用 NULL 值和 Java 使用 null 是不同的概念。那么，你可以使用三种策略来处理 Java 中的 SQL NULL 值-
 
@@ -635,6 +646,7 @@ SQL 使用 NULL 值和 Java 使用 null 是不同的概念。那么，你可以�
 下面是一个处理 NULL 值的示例-
 
 ```
+
 Statement stmt = conn.createStatement( );
 String sql = "SELECT id, first, last, age FROM Employees";
 ResultSet rs = stmt.executeQuery(sql);
@@ -643,4 +655,6 @@ int id = rs.getInt(1);
 if( rs.wasNull( ) ) {
    id = 0;
 }
+
+
 ```

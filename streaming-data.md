@@ -1,3 +1,5 @@
+# 流数据
+
 PreparedStatement 对象必须具备使用输入和输出流来提供参数数据的能力。这使你能够将整个文件存储到数据库列中，这样数据库就能存储大型数据，例如 CLOB 和 BLOB 数据类型。
 
 用于流数据有下列几种方法-
@@ -8,11 +10,12 @@ PreparedStatement 对象必须具备使用输入和输出流来提供参数数�
 
 setXXXStream() 方法需要一个额外的参数，该参数是除了参数占位符的文件大小。这个参数通知驱动程序通过使用流有多少数据被发送到数据库中。
 
-# 示例 #
+## 示例
 
 假如我们到要上传一个名为 XML\_Data.xml 的 XML 文件到数据库的表中。下面是该 XML 文件的内容-
 
 ```
+
 <?xml version="1.0"?>
 <Employee>
 <id>100</id>
@@ -21,6 +24,8 @@ setXXXStream() 方法需要一个额外的参数，该参数是除了参数占�
 <Salary>10000</Salary>
 <Dob>18-08-1978</Dob>
 <Employee>
+
+
 ```
 
 将该 XML 文件和你要运行的示例保存在相同的目录的。
@@ -30,6 +35,7 @@ setXXXStream() 方法需要一个额外的参数，该参数是除了参数占�
 将下面的示例拷贝并粘帖到 JDBCExample.java 中，编译并运行它，如下所示-
 
 ```
+
 // Import required packages
 import java.sql.*;
 import java.io.*;
@@ -138,18 +144,24 @@ public static void createXMLTable(Statement stmt)
    stmt.executeUpdate(streamingDataSql);
 }//end createXMLTable
 }//end JDBCExample
+
+
 ```
 
 现在，让我们用下面的命令编译上面的代码-
 
 ```
+
 C:\>javac JDBCExample.java
 C:\>
+
+
 ```
 
 当你运行 **JDBCExample** 时，它将展示下面的结果-
 
 ```
+
 C:\>java JDBCExample
 Connecting to database...
 Creating XML_Data table...
@@ -163,4 +175,6 @@ Creating XML_Data table...
 <Employee>
 Goodbye!
 C:\>
-```
+
+
+```w

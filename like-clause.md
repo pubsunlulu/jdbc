@@ -1,9 +1,11 @@
+# Like子句实例
+
 本章介绍了如何使用JDBC应用程序在表中查询记录的示例。在表中查询记录时，将通过LIKE子句来增加附加条件。执行下面的示例之前，请确保你已做好以下工作-
 
 - 在运行下面的例子之前，你需要用你实际的用户名和密码去代替  *username* 和 *password* 。
 - 你的 MySQL 或者其他数据库已经启动了并在运行中。
 
-# 所需的步骤 #
+## 所需的步骤
 
 用 JDBC 应用程序去创建一个新的数据库需要执行以下步骤-
 
@@ -13,11 +15,12 @@
 - **执行查询**：需要使用类型声明的对象建立并提交一个 SQL 语句，并依据提供的条件从表中提取记录。这个查询语句用 **LIKE** 子句，将所有名字以 “Za” 开头的学生的记录查询出来。
 - **清理环境**：依靠 JVM 垃圾收集器可以明确地回收所有的数据库资源。
 
-# 示例代码 #
+## 示例代码
 
 将下面的示例拷贝并粘帖到 JDBCExample.java 中，编译并运行它，如下所示-
 
 ``` 
+
 //STEP 1. Import required packages
 import java.sql.*;
 
@@ -108,18 +111,24 @@ public class JDBCExample {
    System.out.println("Goodbye!");
 }//end main
 }//end JDBCExample
+
+
 ```
 
 现在，让我们用下面的命令编译上面的代码-
 
 ``` 
+
 C:\>javac JDBCExample.java
 C:\>
+
+
 ```
 
 当你运行 **JDBCExample** 时，它将展示下面的结果-
 
 ```
+
 C:\>java JDBCExample
 Connecting to a selected database...
 Connected database successfully...
@@ -133,4 +142,6 @@ ID: 100, Age: 30, First: Zara, Last: Ali
 ID: 102, Age: 30, First: Zaid, Last: Khan
 Goodbye!
 C:\>
+
+
 ```

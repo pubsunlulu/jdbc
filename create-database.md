@@ -1,9 +1,11 @@
+#创建数据库实例
+
 本教程介绍了如何使用 JDBC 应用程序创建数据库的示例。执行下面的示例之前，请确保你已做好以下工作-
 
 - 在给定的模式下你应该有管理员权限去创建一个数据库。执行下面的例子，你需要用你实际的用户名和密码去代替 *username* 和  *password* 。
 - 你的 MySQL 或者其他数据库已经启动了并在运行中。
 
-# 所需的步骤 #
+## 所需的步骤
 
 用 JDBC 应用程序去创建一个新的数据库需要执行以下步骤-
 
@@ -14,11 +16,12 @@
 - **执行查询**：需要使用类型声明的对象建立并提交一个 SQL 语句到数据库。
 - **清理环境**：依靠 JVM 垃圾收集器可以明确地回收所有的数据库资源。
 
-# 示例代码 #
+## 示例代码
 
 将下面的示例拷贝并粘帖到 JDBCExample.java 中，编译并运行它，如下所示-
 
 ```
+
 //STEP 1. Import required packages
 import java.sql.*;
 
@@ -72,22 +75,30 @@ public class JDBCExample {
    System.out.println("Goodbye!");
 }//end main
 }//end JDBCExample
+
+
 ```
 
 现在，让我们用下面的命令编译上面的代码-
 
 ```
+
 C:\>javac JDBCExample.java
 C:\>
+
+
 ```
 
 当你运行 **JDBCExample** 时，它将展示下面的结果-
 
 ```
+
 C:\>java JDBCExample
 Connecting to database...
 Creating database...
 Database created successfully...
 Goodbye!
 C:\>
+
+
 ```

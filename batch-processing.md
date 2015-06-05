@@ -1,3 +1,5 @@
+# 批处理
+
 批处理是指你将关联的 SQL 语句组合成一个批处理，并将他们当成一个调用提交给数据库。
 
 当你一次发送多个 SQL 语句到数据库时，可以减少通信的资源消耗，从而提高了性能。
@@ -7,7 +9,7 @@
 - **executeBatch()** 方法返回一个整数数组，数组中的每个元素代表了各自的更新语句的更新数目。
 - 正如你可以添加语句到批处理中，你也可以用 **clearBatch()** 方法删除它们。此方法删除所有用 addBatch() 方法添加的语句。但是，你不能有选择性地选择要删除的语句。
 
-# 批处理和 Statement 对象 #
+## 批处理和 Statement 对象
 
 使用 Statement 对象来使用批处理所需要的典型步骤如下所示-
 
@@ -17,7 +19,7 @@
 - 被创建的 Statement 对象可以用 *executeBatch()* 将所有的 SQL  语句执行。
 - 最后，使用 *commit()* 方法提交所有的更改。
 
-## 示例 ##
+## 示例
 
 下面的代码段提供了一个使用 Statement 对象批量更新的例子-
 
@@ -55,7 +57,7 @@ conn.commit();
 
 为了更好地理解，建议研究学习**批处理-示例代码**。
 
-# 批处理和 PrepareStatement 对象 #
+## 批处理和 PrepareStatement 对象
 
 使用 prepareStatement 对象来使用批处理需要的典型步骤如下所示-
 
@@ -69,6 +71,7 @@ conn.commit();
 下面的代码段提供了一个使用 PrepareStatement 对象批量更新的示例-
 
 ```
+
 // Create SQL statement
 String SQL = "INSERT INTO Employees (id, first, last, age) " +
              "VALUES(?, ?, ?, ?)";
@@ -105,6 +108,8 @@ int[] count = stmt.executeBatch();
 
 //Explicitly commit statements to apply changes
 conn.commit();
+
+
 ```
 
 为了更好地理解，建议研究学习**批处理-示例代码**。

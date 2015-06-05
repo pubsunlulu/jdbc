@@ -1,8 +1,10 @@
+# 示例代码
+
 本章提供了如何创建一个简单 JDBC 应用程序的示例。这个示例演示如何打开一个数据库连接，执行 SQL 查询，并显示结果。
 
 所有在这个模版示例中提到的步骤，将在本教程的后续章节中进行详细描述。
 
-# 创建 JDBC 应用程序 #
+## 创建 JDBC 应用程序
 
 构建一个 JDBC 应用程序包括以下六个步骤-
 
@@ -13,7 +15,7 @@
 - **提取结果集数据：**要求使用适当的 *ResultSet.getXXX()* 方法从结果集中检索数据。
 - **清理环境：**依靠 JVM 的垃圾收集来关闭所有需要明确关闭的数据库资源。
 
-# 示例代码 #
+## 示例代码
 
 
 当你在未来需要创建自己的 JDBC 应用程序时，本示例可以作为一个**模板**。
@@ -23,6 +25,7 @@
 将下面的示例拷贝并粘帖到 JDBCExample.java 中，编译并运行它，如下所示-
 
 ```
+
 //STEP 1. Import required packages
 import java.sql.*;
 
@@ -94,18 +97,24 @@ public class FirstExample {
    System.out.println("Goodbye!");
 }//end main
 }//end FirstExample
+
+
 ```
 
 现在，让我们用下面的命令编译上面的代码-
 
 ```
+
 C:\>javac JDBCExample.java
 C:\>
+
+
 ```
 
 当你运行 **JDBCExample** 时，它将展示下面的结果-
 
 ```
+
 C:\>java FirstExample
 Connecting to database...
 Creating statement...
@@ -114,4 +123,6 @@ ID: 101, Age: 25, First: Mahnaz, Last: Fatma
 ID: 102, Age: 30, First: Zaid, Last: Khan
 ID: 103, Age: 28, First: Sumit, Last: Mittal
 C:\>
+
+
 ```

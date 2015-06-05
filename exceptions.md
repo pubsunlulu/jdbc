@@ -1,10 +1,12 @@
+# 异常
+
 异常处理可以允许你处理一个异常情况，例如可控方式的程序定义错误。
 
 当异常情况发生时，将抛出一个异常。抛出这个词意味着当前执行的程序停止，控制器被重定向到最近的适用的 catch 子句。如果没有适用的 catch  子句存在，那么程序执行被终止。
 
 JDBC 的异常处理是非常类似于 Java 的异常处理，但对于 JDBC ，最常见的异常是 **java.sql.SQLException**。
 
-# SQLException 方法 #
+## SQLException 方法
 
 SQLException 异常在驱动程序和数据库中都可能出现。当出现这个异常时， SQLException 类型的对象将被传递到 catch 子句。
 
@@ -48,6 +50,7 @@ SQLException 异常在驱动程序和数据库中都可能出现。当出现这�
 通过利用可从 Exception 对象提供的信息，你可以捕获异常并继续运行程序。这是一个 try 块的一般格式-
 
 ```
+
 try {
    // Your risky code goes between these curly braces!!!
 }
@@ -60,13 +63,16 @@ finally {
    // Your must-always-be-executed code goes between these 
    // curly braces. Like closing database connection.
 }
+
+
 ```
 
-## 示例 ##
+### 示例#
 
 研究学习下面的示例代码来了解 **try .... catch ... finally** 块的使用。
 
 ```
+
 //STEP 1. Import required packages
 import java.sql.*;
 
@@ -132,18 +138,24 @@ public class JDBCExample {
    System.out.println("Goodbye!");
 }//end main
 }//end JDBCExample
+
+
 ```
 
 现在，让我们用下面的命令编译上面的代码-
 
 ```
+
 C:\>javac JDBCExample.java
 C:\>
+
+
 ```
 
 当你运行 **JDBCExample** 时，如果没有问题它将展示下面的结果，否则相应的错误将被捕获并会显示错误消息-
 
 ```
+
 C:\>java JDBCExample
 Connecting to database...
 Creating statement...
@@ -152,6 +164,8 @@ ID: 101, Age: 25, First: Mahnaz, Last: Fatma
 ID: 102, Age: 30, First: Zaid, Last: Khan
 ID: 103, Age: 28, First: Sumit, Last: Mittal
 C:\>
+
+
 ```
 
 通过传递错误的数据库名称或错误的用户名或错误的密码来测试上面的示例，并检查结果。
